@@ -1,0 +1,66 @@
+server:
+  port: 8082
+  servlet:
+    context-path: /community
+
+spring:
+  thymeleaf:
+    cache: false
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 
+    url: jdbc:mysql://xx/community?characterEncoding=utf-8&useSSL=false&serverTimezone=Hongkong
+  mail:
+    host: smtp.163.com
+    port: 465
+    username: 
+    password: 
+    protocol: smtps
+  redis:
+    database: 2
+    host: 
+    port: 6379
+    password: 
+  #  kafka:
+#    bootstrap-servers: localhost:9092
+#    consumer:
+#      group-id: community-consumer-group
+#      enable-auto-commit: true
+#      auto-commit-interval: 3000
+  task:
+    execution:
+      pool:
+        core-size: 5
+        max-size: 15
+        queue-capacity: 100
+    scheduling:
+      pool:
+        size: 5
+
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.example.community.entity
+  configuration:
+    map-underscore-to-camel-case: true
+    use-generated-keys: true
+
+community:
+  path:
+    domain: http://localhost:8080
+    upload: D:/Code/community/upload
+
+logging:
+  level:
+    com.example.community: info
+
+caffeine:
+  posts:
+    max-size: 15
+    expire-seconds: 180
+
+
+
+
+
